@@ -1,1 +1,122 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VERIFICARE</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .input-group {
+            display: flex;
+            margin-bottom: 10px;
+        }
+        .input-group input {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .color-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+        }
+        .red {
+            background-color: red;
+        }
+        .green {
+            background-color: green;
+        }
+        .blue {
+            background-color: blue;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: darkgreen;
+        }
+        .message {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .success {
+            background-color: lightgreen;
+        }
+        .error {
+            background-color: lightcoral;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Codul e-o vrajă ce se-nvârte, doar cinci cifre-n căsuțe.</h1>
+    <div class="container">
+        <div class="input-group">
+            <input type="text" id="redCode" placeholder="...">
+            <div class="color-box red"></div>
+        </div>
+        <div class="input-group">
+            <input type="text" id="greenCode" placeholder="...">
+            <div class="color-box green"></div>
+        </div>
+        <div class="input-group">
+            <input type="text" id="blueCode" placeholder="...">
+            <div class="color-box blue"></div>
+        </div>
+        <button onclick="verifyCodes()">Este bine!</button>
+        <button onclick="aicrezutfraiere()">Ma dau batut. Da-mi odata codul!</button>
+        <div id="message" class="message hidden"></div>
+    </div>
+
+    <script>
+        function verifyCodes() {
+            const redCode = document.getElementById('redCode').value;
+            const greenCode = document.getElementById('greenCode').value;
+            const blueCode = document.getElementById('blueCode').value;
+            const messageDiv = document.getElementById('message');
+            const containerDiv = document.querySelector('.container');
+
+            if (redCode === '22947' && greenCode === '55757' && blueCode === '11131') {
+                messageDiv.textContent = 'Bravo baiatul meu. Iata-ti recompensa: "9RFX9-RQH7H-GTKC2-J3GV9-KWF3Z"';
+                messageDiv.classList.remove('hidden', 'success');
+                messageDiv.classList.add('success');
+            } else {
+                messageDiv.textContent = 'Fii mai atent!';
+                messageDiv.classList.remove('hidden', 'success');
+                messageDiv.classList.add('error');
+            }
+        }
+
+        function aicrezutfraiere() {
+            const messageDiv = document.getElementById('message');
+
+            messageDiv.textContent = 'Fii mai atedddnt!';
+                messageDiv.classList.remove('hidden', 'success');
+                messageDiv.classList.add('error');
+        }
+    </script>
+</body>
+</html>
